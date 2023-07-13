@@ -18,7 +18,7 @@ docker run -it --rm ookangzheng/curl-http3 curl -svo /dev/null --http3 https://c
 To add this as a local command you can add the following to your `.bashrc` or `.zshrc`
 
 ```
-alias curl3="docker run --rm -it ookangzheng/curl-http3"
+alias curl3="docker run --rm -it ookangzheng/curl-http3 curl"
 ```
 
 ## Version
