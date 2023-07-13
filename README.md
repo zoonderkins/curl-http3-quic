@@ -21,6 +21,20 @@ To add this as a local command you can add the following to your `.bashrc` or `.
 alias curl3="docker run --rm -it ookangzheng/curl-http3 curl"
 ```
 
+Example after add alias to `.zshrc` then, `source ./zshrc`
+
+```
+curl3 --http3 https://cloudflare-quic.com -I
+
+HTTP/3 200
+date: Thu, 13 Jul 2023 11:42:36 GMT
+content-type: text/html
+content-length: 125959
+server: cloudflare
+cf-ray: 7e6143765dbe0925-LAX
+alt-svc: h3=":443"; ma=86400
+```
+
 ## Version
 
 ```
