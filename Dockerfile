@@ -6,16 +6,18 @@ FROM alpine:latest AS builder
 
 # Original maintainer
 LABEL maintainer="Yury Muski <muski.yury@gmail.com>"
-LABEL version="v0.0.1"
+LABEL version="v0.0.2"
 LABEL admin="zoonderkins"
 
 WORKDIR /opt
 
-ARG CURL_VERSION=curl-8_1_2
+ARG CURL_VERSION=curl-8_2_1
 ARG QUICHE_VERSION=0.17.2
 
 # Install necessary build dependencies
-RUN apk add --no-cache build-base git autoconf libtool cmake go curl rust cargo perl autoconf automake libtool file nasm pkgconfig;
+RUN apk add --no-cache bash build-base git autoconf libtool cmake go curl rust cargo perl autoconf automake libtool file nasm pkgconfig;
+
+# https://github.com/curl/curl/blob/master/docs/HTTP3.md#quiche-version
 
 # Clone quiche
 RUN git clone --recursive https://github.com/cloudflare/quiche
@@ -48,6 +50,6 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 
 WORKDIR /opt
 # add httpstat script
-RUN curl -s https://raw.githubusercontent.com/b4b4r07/httpstat/master/httpstat.sh >httpstat.sh && chmod +x httpstat.sh
+# RUN curl -s https://raw.githubusercontent.com/b4b4r07/httpstat/master/httpstat.sh >httpstat.sh && chmod +x httpstat.sh
 
 CMD ["curl"]
