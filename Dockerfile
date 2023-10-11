@@ -1,23 +1,18 @@
-# This Dockerfile is ported from https://github.com/yurymuski/curl-http3 
-# Switch from Ubuntu 20.04 to Alpine Linux 
-
 # Use multi-stage builds to minimize final image size
 FROM alpine:latest AS builder
 
-# Original maintainer
-LABEL maintainer="Yury Muski <muski.yury@gmail.com>"
-LABEL version="v0.0.2"
+# Origin maintainer: "Yury Muski <muski.yury@gmail.com>"
+LABEL maintainer="ookangzheng"
+LABEL version="v0.0.5"
 LABEL admin="zoonderkins"
 
 WORKDIR /opt
 
-ARG CURL_VERSION=curl-8_2_1
-ARG QUICHE_VERSION=0.17.2
+ARG CURL_VERSION=curl-8_4_0
+ARG QUICHE_VERSION=0.18.0
 
 # Install necessary build dependencies
 RUN apk add --no-cache bash build-base git autoconf libtool cmake go curl rust cargo perl autoconf automake libtool file nasm pkgconfig;
-
-# https://github.com/curl/curl/blob/master/docs/HTTP3.md#quiche-version
 
 # Clone quiche
 RUN git clone --recursive https://github.com/cloudflare/quiche
@@ -49,7 +44,5 @@ COPY --from=builder /opt/quiche/target/release /opt/quiche/target/release
 ENV LD_LIBRARY_PATH=/usr/local/lib
 
 WORKDIR /opt
-# add httpstat script
-# RUN curl -s https://raw.githubusercontent.com/b4b4r07/httpstat/master/httpstat.sh >httpstat.sh && chmod +x httpstat.sh
 
 CMD ["curl"]
