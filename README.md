@@ -40,10 +40,10 @@ alt-svc: h3=":443"; ma=86400
 ```
 $ docker run -it --rm ookangzheng/curl-http3 curl -V
 
-curl 8.2.1-DEV (x86_64-pc-linux-musl) libcurl/8.2.1-DEV BoringSSL quiche/0.17.2
+curl 8.4.0-DEV (x86_64-pc-linux-musl) libcurl/8.4.0-DEV BoringSSL quiche/0.18.0
 Release-Date: [unreleased]
 Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
-Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IPv6 Largefile NTLM NTLM_WB SSL threadsafe UnixSockets
+Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IPv6 Largefile NTLM SSL threadsafe UnixSockets
 ```
 
 ## Build
