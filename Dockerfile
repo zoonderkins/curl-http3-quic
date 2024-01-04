@@ -2,14 +2,14 @@
 FROM alpine:latest AS builder
 
 # Origin maintainer: "Yury Muski <muski.yury@gmail.com>"
-LABEL maintainer="ookangzheng"
-LABEL version="v0.0.5"
+
+LABEL version="v0.0.7"
 LABEL admin="zoonderkins"
 
 WORKDIR /opt
 
-ARG CURL_VERSION=curl-8_4_0
-ARG QUICHE_VERSION=0.18.0
+ARG CURL_VERSION=curl-8_5_0
+ARG QUICHE_VERSION=0.20.0
 
 # Install necessary build dependencies
 RUN apk add --no-cache bash build-base git autoconf libtool cmake go curl rust cargo perl autoconf automake libtool file nasm pkgconfig;
