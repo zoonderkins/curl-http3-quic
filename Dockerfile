@@ -35,7 +35,7 @@ RUN cd curl && \
 
 # Create the final stage and copy the build artifacts from the previous stage
 FROM alpine:latest
-RUN apk add --no-cache curl libgcc libstdc++
+RUN apk add --no-cache curl libgcc libstdc++ libpsl
 
 COPY --from=builder /alpine/usr/local/ /usr/local/
 COPY --from=builder /opt/quiche/target/release /opt/quiche/target/release
