@@ -3,13 +3,13 @@ FROM alpine:latest AS builder
 
 # Origin maintainer: "Yury Muski <muski.yury@gmail.com>"
 
-LABEL version="v0.0.8"
+LABEL version="v0.0.9"
 LABEL admin="zoonderkins"
 
 WORKDIR /opt
 
-ARG CURL_VERSION=curl-8_6_0
-ARG QUICHE_VERSION=0.20.0
+ARG CURL_VERSION=curl-8_7_1
+ARG QUICHE_VERSION=0.20.1
 
 # Install necessary build dependencies
 RUN apk add --no-cache bash build-base git autoconf libtool cmake go curl rust cargo perl autoconf automake libtool file nasm pkgconfig libpsl-dev;
