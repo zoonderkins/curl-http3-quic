@@ -35,11 +35,13 @@ docker run -it --rm ookangzheng/curl-http3 curl --http3 https://cloudflare-quic.
 
 ```
 $ docker run -it --rm ookangzheng/curl-http3 curl -V
+```
 
-curl 8.4.0-DEV (x86_64-pc-linux-musl) libcurl/8.4.0-DEV BoringSSL quiche/0.18.0
+```
+curl 8.8.0-DEV (x86_64-pc-linux-musl) libcurl/8.8.0-DEV BoringSSL libidn2/2.3.7 libpsl/0.21.5 quiche/0.20.1
 Release-Date: [unreleased]
-Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
-Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IPv6 Largefile NTLM SSL threadsafe UnixSockets
+Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IDN IPv6 Largefile NTLM PSL SSL threadsafe UnixSockets
 ```
 
 ## Build
