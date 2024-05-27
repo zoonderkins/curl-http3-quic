@@ -28,6 +28,10 @@ curl3 --http3 https://cloudflare-quic.com -I
 ```
 
 ```
+docker run --name curl-http3 -it --rm ookangzheng/curl-http3 ./httpstat.sh -ILv https://google.com --http3
+```
+
+```
 docker run -it --rm ookangzheng/curl-http3 curl --http3 https://cloudflare-quic.com -I
 ```
 
@@ -38,7 +42,7 @@ $ docker run -it --rm ookangzheng/curl-http3 curl -V
 ```
 
 ```
-curl 8.8.0-DEV (x86_64-pc-linux-musl) libcurl/8.8.0-DEV BoringSSL libidn2/2.3.7 libpsl/0.21.5 quiche/0.20.1
+curl 8.8.1-DEV (aarch64-unknown-linux-musl) libcurl/8.8.1-DEV BoringSSL libidn2/2.3.7 libpsl/0.21.5 quiche/0.21.0
 Release-Date: [unreleased]
 Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
 Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IDN IPv6 Largefile NTLM PSL SSL threadsafe UnixSockets
@@ -47,7 +51,7 @@ Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IDN IPv6 Largefile NTLM PSL S
 ## Build
 
 ```
-docker buildx build --platform linux/amd64 -t "ookangzheng/curl-http3:latest" -f Dockerfile .
+docker buildx create --name multiarch --driver docker-container --use
 
-docker push ookangzheng/curl-http3:latest
+docker buildx build --platform linux/amd64,linux/arm64 -t "ookangzheng/curl-http3:latest" -f Dockerfile . --push
 ```
